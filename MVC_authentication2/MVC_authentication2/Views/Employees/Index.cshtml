@@ -1,0 +1,158 @@
+﻿@model IEnumerable<MVC_authentication2.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(/images/big_image_1.jpg);">
+    <div class="container">
+        <div >
+            <div class="col-md-12 text-center">
+
+                <div style="margin-top:30px;">
+                    <h1 >Our Rooms</h1>
+                    <p>Discover our world's #1 Luxury Room For VIP.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END section -->
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="media d-block room mb-0">
+
+                        <div class="media-body">
+
+                            <h3 class="mt-0">
+                            @Html.DisplayFor(modelItem => item.First_Name)
+                            </h3>
+                            <h3 class="mt-0">
+                            @Html.DisplayFor(modelItem => item.Last_Name)
+                            </h3>
+                            <p>
+                            @Html.DisplayFor(modelItem => item.E_mail)
+                            </p>
+                            <p>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                             </p>
+                            <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) ;
+                            </p>
+                            <p> 
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) 
+                            </p>
+                          <p>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                          </p>
+                        </div>
+                        </div>
+                    </div>
+                    }
+      
+                </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid" style="background-image: url('~/images/img_5.jpg');">
+    <div class="container">
+            <div class="col-md-9 text-center element-animate">
+                <h2>Relax and Enjoy your Holiday</h2>
+                <p class="lead mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto quidem tempore expedita facere facilis, dolores!</p>
+                <div class="btn-play-wrap"><a href="https://vimeo.com/channels/staffpicks/93951774" class="btn-play popup-vimeo "><span class="ion-ios-play"></span></a></div>
+            </div>
+    </div>
+</div>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E_mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job_Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+@*@foreach (var item in Model)
+    {
+    <div class="" style="display:flex; flex-direction:column; margin:20px; border:2px solid black" >
+        <h1>
+            @Html.DisplayFor(modelItem => item.First_Name)
+        </h1>
+        <h1>
+            @Html.DisplayFor(modelItem => item.Last_Name)
+        </h1>
+        <h3>
+            @Html.DisplayFor(modelItem => item.E_mail)
+        </h3>
+        <h3>
+            @Html.DisplayFor(modelItem => item.Phone)
+
+        </h3>
+    </div>
+    }*@
