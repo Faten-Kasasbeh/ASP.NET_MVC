@@ -12,13 +12,12 @@ namespace MVC_12_2.Controllers
 {
     public class StudentsController : Controller
     {
-        private SchoolEntities2 db = new SchoolEntities2();
+        private SchoolEntities db = new SchoolEntities();
 
         // GET: Students
         public ActionResult Index()
         {
-            var students = db.Students.Include(s => s.StudentCours);
-            return View(students.ToList());
+            return View(db.Students.ToList());
         }
 
         // GET: Students/Details/5
@@ -39,7 +38,6 @@ namespace MVC_12_2.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.Id = new SelectList(db.StudentCourses, "StudentId", "note");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace MVC_12_2.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Id = new SelectList(db.StudentCourses, "StudentId", "note", student.Id);
             return View(student);
         }
 
@@ -73,7 +70,6 @@ namespace MVC_12_2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Id = new SelectList(db.StudentCourses, "StudentId", "note", student.Id);
             return View(student);
         }
 
@@ -90,7 +86,6 @@ namespace MVC_12_2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Id = new SelectList(db.StudentCourses, "StudentId", "note", student.Id);
             return View(student);
         }
 

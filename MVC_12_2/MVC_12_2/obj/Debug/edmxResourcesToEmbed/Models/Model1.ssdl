@@ -11,6 +11,7 @@
   <EntityType Name="StudentCourses">
     <Key>
       <PropertyRef Name="StudentId" />
+      <PropertyRef Name="CourseID" />
     </Key>
     <Property Name="StudentId" Type="int" Nullable="false" />
     <Property Name="CourseID" Type="int" Nullable="false" />
@@ -39,7 +40,7 @@
   </Association>
   <Association Name="FK_StudentCourses_Students">
     <End Role="Students" Type="Self.Students" Multiplicity="1" />
-    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="0..1" />
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Students">
         <PropertyRef Name="Id" />

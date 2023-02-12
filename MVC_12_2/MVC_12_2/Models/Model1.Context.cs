@@ -13,10 +13,10 @@ namespace MVC_12_2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SchoolEntities2 : DbContext
+    public partial class SchoolEntities : DbContext
     {
-        public SchoolEntities2()
-            : base("name=SchoolEntities2")
+        public SchoolEntities()
+            : base("name=SchoolEntities")
         {
         }
     

@@ -12,7 +12,7 @@ namespace MVC_12_2.Controllers
 {
     public class StudentCoursController : Controller
     {
-        private SchoolEntities2 db = new SchoolEntities2();
+        private SchoolEntities db = new SchoolEntities();
 
         // GET: StudentCours
         public ActionResult Index()

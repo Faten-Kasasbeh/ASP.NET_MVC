@@ -16,6 +16,7 @@
         <EntityType Name="StudentCourses">
           <Key>
             <PropertyRef Name="StudentId" />
+            <PropertyRef Name="CourseID" />
           </Key>
           <Property Name="StudentId" Type="int" Nullable="false" />
           <Property Name="CourseID" Type="int" Nullable="false" />
@@ -44,7 +45,7 @@
         </Association>
         <Association Name="FK_StudentCourses_Students">
           <End Role="Students" Type="Self.Students" Multiplicity="1" />
-          <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="0..1" />
+          <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Students">
               <PropertyRef Name="Id" />
@@ -84,6 +85,7 @@
         <EntityType Name="StudentCours">
           <Key>
             <PropertyRef Name="StudentId" />
+            <PropertyRef Name="CourseID" />
           </Key>
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="CourseID" Type="Int32" Nullable="false" />
@@ -99,7 +101,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CourseID" Type="Int32" />
-          <NavigationProperty Name="StudentCours" Relationship="Self.FK_StudentCourses_Students" FromRole="Students" ToRole="StudentCourses" />
+          <NavigationProperty Name="StudentCourses" Relationship="Self.FK_StudentCourses_Students" FromRole="Students" ToRole="StudentCourses" />
         </EntityType>
         <Association Name="FK_StudentCourses_Courses">
           <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
@@ -115,7 +117,7 @@
         </Association>
         <Association Name="FK_StudentCourses_Students">
           <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="StudentCourses" Type="Self.StudentCours" Multiplicity="0..1" />
+          <End Role="StudentCourses" Type="Self.StudentCours" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Students">
               <PropertyRef Name="Id" />
@@ -125,7 +127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SchoolEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SchoolEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Courses" EntityType="Self.Cours" />
           <EntitySet Name="StudentCourses" EntityType="Self.StudentCours" />
           <EntitySet Name="Students" EntityType="Self.Student" />
@@ -143,7 +145,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="SchoolEntities2">
+        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="SchoolEntities">
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="SchoolModel.Cours">
               <MappingFragment StoreEntitySet="Courses">

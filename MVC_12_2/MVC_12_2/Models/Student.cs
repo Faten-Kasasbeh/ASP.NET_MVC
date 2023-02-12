@@ -14,11 +14,18 @@ namespace MVC_12_2.Models
     
     public partial class Student
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Student()
+        {
+            this.StudentCourses = new HashSet<StudentCours>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Grade { get; set; }
         public Nullable<int> CourseID { get; set; }
     
-        public virtual StudentCours StudentCours { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StudentCours> StudentCourses { get; set; }
     }
 }
