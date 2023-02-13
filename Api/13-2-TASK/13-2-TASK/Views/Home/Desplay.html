@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<!--<table class="table table-striped">
+   
+    <tbody id="tb">
+
+    </tbody>
+    </table>-->
+    <div class="td"></div>
+    <script>
+    
+    async function read() {
+        
+            const api = "https://localhost:44320/api/colleges";
+            const res = await fetch(api);
+            const data = await res.json();
+            console.log(data);
+            readdata(data);
+       
+    }
+    function readdata(data) {
+        for (let i =0; i < data.length; i++) {
+            document.getElementById('tb').innerHTML += "<div class='col - xl - 3 col - lg - 4 col - md - 6 wow > <div  ><div class='position-relative bg-light overflow-hidden'><div class='bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3'>New</div></div><div class='text-center p-4'> <a class='d-block h5 mb-2' href=''>" + data[i].Name + "</a><span class='text-primary me-1'>" + data[i].Id + "</span><span class='text-body text-decoration-line-through'>" + data[i].Description + "</span> </div><div class='d-flex border-top'><small class='w-50 text-center border-end py-2'><a class='text-body' href='/Majors/Index/" + data[i].Id + "'><i class='fa fa-eye text-primary me-2'></i>View detail</a></small></div></div></div>";
+
+
+            //    "<tr> <td>" + data[i].ID + "</td>" +
+            //"<td>" + data[i].Name + "</td>" +
+            //"<td>" + data[i].Description + "</td>" +
+
+            //    "<td> <a href =/Majors/Details/" + data[i].ID +
+            //    "Show Major </a></td></tr>"
+        }
+        }
+        read();
+</script>
+</body>
+</html>
